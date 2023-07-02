@@ -14,14 +14,14 @@
             <button class = "start">ゲームスタート</button>
         </div>      
     </div>
-
+    <div id="clock">経過時間</div>
     <table id="table"></table>
 </body>
 
 <script>
 
 window.onload=function(){
-  
+ 
   function Card(type,num){
     this.type=type;
     this.num=num;
@@ -95,7 +95,17 @@ window.onload=function(){
       }
   }
  }
+
+
 }
+// let counter = 0;
+//  let clock = document.getElementById("clock");
+//  let timer = setInterval(function(){
+//     clock.innerText = "経過時間:"+(++count);
+//  }, 1000);
+//  function clock (){
+    
+//  }
 
 
 </script>
