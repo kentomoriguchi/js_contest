@@ -25,9 +25,9 @@ window.onload=function(){
   
   //カード配列作成
   const cards=[];
-  const types=['m','w'];
+  const types=['m','mm','w','ww'];
   for(let i=0;i<types.length;i++){
-    for(let j=1;j<=20;j++){
+    for(let j=1;j<=10;j++){
       let card=new Card(types[i],j);
       card.setFront();
       cards.push(card);
@@ -47,9 +47,9 @@ window.onload=function(){
   const table=document.getElementById('table');
   for(let i=0;i<types.length;i++){
     let tr=document.createElement('tr');
-    for(let j=0;j<20;j++){
+    for(let j=0;j<10;j++){
       let td=document.createElement('td');
-      let tempCard=cards[i*20+j];
+      let tempCard=cards[i*10+j];
       td.classList.add('card', 'back');
       td.onclick=flip;
       td.num=tempCard.num;
