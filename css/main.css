@@ -1,12 +1,19 @@
 body{
 	background-color:lightgreen;
+    font-family: "メイリオ";
 }
+
+.title{
+    text-align: center;
+    font-size: 40px;
+}
+
 table{
 	margin:10px auto;
 }
 td.card{
-	width:100px;
-	height:120px;
+	width:150px;
+	height:150px;
 	margin:2px;
 	background-size:cover;
 }
