@@ -13,8 +13,9 @@
 </body>
 
 <script>
+    
 window.onload=function(){
-  //コンストラクタ作成
+  
   function Card(type,num){
     this.type=type;
     this.num=num;
@@ -34,7 +35,7 @@ window.onload=function(){
       cards.push(card);
     }
   }
-
+   //シャッフル関数
    function shuffle(){
     let i=cards.length;
     while(i){
@@ -44,7 +45,8 @@ window.onload=function(){
       cards[i]=temp;
     }
   }
-  shuffle();//シャッフル実行
+  //シャッフルしてテーブルに表示
+  shuffle();
   const table=document.getElementById('table');
   for(let i=0;i<types.length;i++){
     let tr=document.createElement('tr');
@@ -59,14 +61,15 @@ window.onload=function(){
     }
     table.appendChild(tr);
   }
+
+  //正誤判定
   let firstCard=null;
   let flipTimerId=NaN;
 
   function flip(e){
     let td=e.target;
-    //td.classList.toggle('back');
     if(!td.classList.contains('back') || flipTimerId){
-      return;//表のカードをクリックしても何もしない。
+      return;
     }
     td.classList.remove('back');//カードを表にする。
     if(firstCard===null){
