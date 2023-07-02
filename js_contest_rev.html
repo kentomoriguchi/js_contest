@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/main.css">
+<!-- <script src="js/main.js"></script> -->
+<title>芸能人神経衰弱rev</title>
+<script src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+  <table id="table"></table>
+</body>
+
+<script>
+window.onload=function(){
+  //コンストラクタ作成
+  function Card(type,num){
+    this.type=type;
+    this.num=num;
+    this.front;
+    this.setFront=function(){
+      this.front=`${this.type}${this.num<10?'0':''}${this.num}.gif`;
+    };
+  }
+  
+  //カード配列作成
+  const cards=[];
+  const types=['m','w'];
+  for(let i=0;i<types.length;i++){
+    for(let j=1;j<=20;j++){
+      let card=new Card(types[i],j);
+      card.setFront();
+      cards.push(card);
+    }
+  }
+
+   function shuffle(){
+    let i=cards.length;
+    while(i){
+      let index=Math.floor(Math.random()*i--);
+      var temp=cards[index];
+      cards[index]=cards[i];
+      cards[i]=temp;
+    }
+  }
+  shuffle();//シャッフル実行
+  
+  const table=document.getElementById('table');
+  for(let i=0;i<types.length;i++){
+    let tr=document.createElement('tr');
+    for(let j=0;j<20;j++){
+      let td=document.createElement('td');
+      let tempCard=cards[i*20+j];
+      td.classList.add('card', 'back');
+      td.onclick=flip;
+      td.num=tempCard.num;
+      td.style.backgroundImage=`url(images/${tempCard.front})`;
+      tr.appendChild(td);
+    }
+    table.appendChild(tr);
+  }
+  let firstCard=null;
+  let flipTimerId=NaN;
+
+  function flip(e){
+    let td=e.target;
+    //td.classList.toggle('back');
+    if(!td.classList.contains('back') || flipTimerId){
+      return;//表のカードをクリックしても何もしない。
+    }
+    td.classList.remove('back');//カードを表にする。
+    if(firstCard===null){
+      firstCard=td;//1枚目だったら今めくったカードをfirstCardに設定
+    }else{
+      //2枚目だったら1枚目と比較して結果を判定する。
+      if(firstCard.num===td.num){
+        //２枚が同じだったときの処理
+        firstCard=null;
+      }else{
+        flipTimerId=setTimeout(function(){
+          firstCard.classList.add('back');
+          td.classList.add('back');
+          flipTimerId=NaN;
+          firstCard=null;
+        },1200);
+      }
+  }
+ }
+}
+
+
+</script>
+</html>

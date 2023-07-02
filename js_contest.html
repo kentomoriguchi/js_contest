@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>芸能人神経衰弱</title>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <table class ="table" border = "1"></table>
+
+<script>
+//カードの配列
+const cards = [];
+
+//m：男性、w：女性
+const cardtype = ["m","mm","w","ww"]
+
+//カード作成
+function Card (type, num) {
+    this.type = type;
+    this.num = num;
+    this.front = `${this.type}${('0'+this.num).slice(-2)}.gif`;
+}
+for (let i = 0; i < cardtype.length; i++){
+    for (let j = 1; j <=10; j++){
+        let card = new Card(cardtype[i], j);
+        cards.push(card);
+    }
+}
+ console.log(cards)
+
+const table = document.querySelector(".table");
+
+// シャッフル関数
+function shuffle(arrays) {
+    const array = arrays.slice();
+    for (let i = array.length - 1; i >= 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+    }
+    return array;
+}
+
+// シャッフルし、テーブルに表示
+function shuffleCard(){
+    const shuffled = shuffle(cards);
+    for (let i = 0; i < cardtype.length; i++) {
+        const tr = document.createElement("tr");
+        table.appendChild(tr);
+        for (let j = 0; j < 10; j++) {
+            const td = document.createElement("td");
+            td.style.backgroundImage = `url(img/${shuffled[i * 10 + j].front})`;
+            tr.appendChild(td);
+         }
+       }
+  }
+shuffleCard(); 
+
+//td.innerHTML = shuffled[i*10+j].type + "" + shuffled[i*10+j].num;
+
+
+
+
+
+// //ランダムにする
+// function rand(min,max){
+//     return Math.floor (Math.random()*(max - min + 1)) + min; 
+// }
+// for (let i = cards.length - 1; i > 0; i--){
+//     let r = rand(0,i);
+//     let tmp = cards[i];
+//     cards[i] = cards[r];
+//     cards[r] = tmp;
+// }
+// //テーブルに表示
+// for (let i = 0; i< cardtype.length; i++){
+//     const tr = document.createElement("tr");
+//     table.appendChild(tr);
+//     for (let j =0; j < 10; j++){
+//         const td = document.createElement("td");
+//         td.innerHTML = cards[i*10+j].type + "" + cards[i*10+j].num;
+//         tr.appendChild(td)
+//     }
+// }
+
+
+
+
+
+
+</script>
+</body>
+</html>
