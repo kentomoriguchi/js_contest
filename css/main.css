@@ -18,15 +18,11 @@ body{
     text-align: center;
 }
 
-.start{
+#start{
     font-size: 30px;
 
 }
 
-#clock{
-    font-size: 20px;
-
-}
 
 table{
 	margin:10px auto;
