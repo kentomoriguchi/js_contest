@@ -3,14 +3,11 @@ body{
     font-family: "メイリオ";
 }
 
-.bg{
-    background-color: white;
-}
-
 .title{
     justify-content: center;
     text-align: center;
     font-size: 40px;
+    background-color: white;
 }
 
 .main{
@@ -20,19 +17,33 @@ body{
 
 #start{
     font-size: 30px;
-
 }
 
+/*以下ゲーム画面  */
+.game {
+    justify-content: center;
+    text-align: center;
+}
 
 table{
 	margin:10px auto;
 }
+
 td.card{
 	width:150px;
 	height:150px;
 	margin:2px;
 	background-size:cover;
 }
+
 td.card.back{
     background-image:url(../images/z01.gif) !important;
   }
+
+#reset {
+    font-size: 30px;
+}
+
+#home {
+    font-size: 30px;
+}
