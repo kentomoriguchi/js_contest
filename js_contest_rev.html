@@ -6,13 +6,8 @@
 <title>芸能人❤神経衰弱rev</title>
 <script src="js/jquery-3.5.1.min.js"></script>
 <style>
-  .bg {
-    display: block;
-  }
-
-  .game {
-    display: none;
-  }
+  .bg {display: block;}
+  .game {display: none;}
 </style>
 </head>
 <body class="back">
@@ -44,11 +39,10 @@ document.querySelector(`.back`).animate(
 
 //ゲーム画面に切り替え
 document.addEventListener('DOMContentLoaded', function() {
-  let startButton = document.getElementById('start');
   let startScreen = document.querySelector('.bg');
   let gameScreen = document.querySelector('.game');
 
-  startButton.addEventListener('click', function() {
+  $('#start').on('click',function(){
     startScreen.style.display = 'none';
     gameScreen.style.display = 'block';
   });
@@ -134,7 +128,13 @@ window.onload=function(){
 }
 
 //リセットボタン
-
+$("#home").on('click', function(){
+  let result = confirm("タイトルに戻りますか？") 
+  if (result) {
+    location.reload();
+  }else {
+  }
+});
 
 </script>
 </html>
