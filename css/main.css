@@ -33,10 +33,28 @@ body{
 
 #start{
     font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    color: #9b9b9b;
+    font-size: 30px;
+    border-radius: 100px;
+    width: 250px;
+    height: 100px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
+#start:hover {
+    transform: translateY(2px);
+    box-shadow: 0 0 rgba(0, 0, 0, 0);
+  }
+  
 
 /*以下ゲーム画面  */
 .game {
+    margin-top: 100px;
     justify-content: center;
     text-align: center;
 }
@@ -56,10 +74,22 @@ td.card.back{
     background-image:url(../images/z01.gif) !important;
   }
 
-#reset {
-    font-size: 30px;
-}
-
 #home {
     font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    color: #9b9b9b;
+    font-size: 20px;
+    border-radius: 100px;
+    width: 100px;
+    height: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
+#home:hover {
+    transform: translateY(2px);
+    box-shadow: 0 0 rgba(0, 0, 0, 0);
+  }
