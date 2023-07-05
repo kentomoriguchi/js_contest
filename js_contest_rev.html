@@ -8,6 +8,8 @@
 <style>
   .bg {display: block;}
   .game {display: none;}
+  /* .mania {display: none;} */
+
 </style>
 </head>
 <body class="back">
@@ -15,13 +17,20 @@
         <div class="main">
             <p class="title">芸能人❤神経衰弱</p>
             <button id = "start">ゲームスタート</button>
+            <!-- <button id = "midstart">マニアック</button> -->
+
         </div>      
     </div>
     <div class="game">
       <table id="table"></table>
-      <button id="reset">リセット</button>
+      <!-- <button id="reset">リセット</button> -->
       <button id="home">戻る</button>
     </div>
+    <!-- <div class="mania">
+      <table id="table"></table>
+      <button id="reset">リセット</button>
+      <button id="home">戻る</button>
+    </div> -->
 </body>
 
 <script>
@@ -41,13 +50,13 @@ document.querySelector(`.back`).animate(
 document.addEventListener('DOMContentLoaded', function() {
   let startScreen = document.querySelector('.bg');
   let gameScreen = document.querySelector('.game');
+  //let maniaScreen = document.querySelector('.mania');
 
   $('#start').on('click',function(){
     startScreen.style.display = 'none';
-    gameScreen.style.display = 'block';
+    gameScreen.style.display = 'block';    
   });
 });
-
 
 
 window.onload=function(){
@@ -63,7 +72,15 @@ window.onload=function(){
   
   //カード配列作成
   const cards=[];
-  const types=['m','w',];
+  const types=[];
+  const random = Math.floor(Math.random()*2);
+  if (random === 0){
+   types.push('m','w');
+  }
+  if (random === 1){
+    types.push('mm','ww');
+  }
+
   for(let i=0;i<types.length;i++){
     for(let j=1;j<=10;j++){
       let card=new Card(types[i],j);
@@ -128,6 +145,16 @@ window.onload=function(){
 }
 
 //リセットボタン
+$("#reset").on('click', function(){
+  let reset = confirm("リセットしますか？") 
+  if (reset) {
+    
+  }else {
+  }
+});
+
+
+//戻るボタン
 $("#home").on('click', function(){
   let result = confirm("タイトルに戻りますか？") 
   if (result) {
