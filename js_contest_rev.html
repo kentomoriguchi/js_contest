@@ -8,40 +8,34 @@
 <style>
   .bg {display: block;}
   .game {display: none;}
-  /* .mania {display: none;} */
-
 </style>
 </head>
 <body class="back">
-    <div class="bg">
-        <div class="main">
-            <p class="title">芸能人❤神経衰弱</p>
-            <button id = "start">ゲームスタート</button>
-            <!-- <button id = "midstart">マニアック</button> -->
-
-        </div>      
-    </div>
-    <div class="game">
+  <div class="bg">
+    <div class="main">
+      <div class="title">
+        <p class="geinoujin">芸能人</p>
+        <p class="hert">❤</p>
+        <p class="sinkei">神経衰弱</p>
+      </div>
+      <button id = "start">ゲームスタート</button>
+    </div>      
+  </div>
+  <div class="game">
       <table id="table"></table>
-      <!-- <button id="reset">リセット</button> -->
       <button id="home">戻る</button>
-    </div>
-    <!-- <div class="mania">
-      <table id="table"></table>
-      <button id="reset">リセット</button>
-      <button id="home">戻る</button>
-    </div> -->
+  </div>
 </body>
 
 <script>
 //背景画像スクロール
 document.querySelector(`.back`).animate(
 	[
-		{ backgroundPosition: '0 0' },
-		{ backgroundPosition: '0 100%' }
+		{ backgroundPosition: '-100% 0'},
+		{ backgroundPosition: '0 0' }
 	],
 	{
-		duration: 8000,
+		duration: 10000,
 		iterations: Infinity
 	}
 );
